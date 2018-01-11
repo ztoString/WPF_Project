@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="Library.BookListView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="300" Width="300">
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="Blue"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid x:Name="grdBookList">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ToolBarTray x:Name="toolbarBookList">
+            <ToolBar>
+                <Border BorderBrush="Blue" 
+                        CornerRadius="3"
+                        BorderThickness="1"
+                        Margin="2"
+                        >
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox x:Name="cmbSearchType"
+                          SelectedIndex="{Binding SearchType}" Width="80">
+                            <ComboBoxItem Content="书名" IsSelected="True"/>
+                            <ComboBoxItem Content="作者"/>
+                            <ComboBoxItem Content="发布机构"/>
+                        </ComboBox>
+                        <TextBox x:Name="txtSearch" 
+                         Width="150"
+                         VerticalAlignment="Center"
+                         Text="{Binding SearchText,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                         TextChanged="txtSearch_TextChanged"
+                         />
+                    </StackPanel>
+                </Border>
+                <Separator/>
+                <Button x:Name="btnAddNew" Content="添加" Command="{Binding AddCommand}"/>
+                <Button x:Name="btnRemove" Content="删除" Command="{Binding DeleteCommand}"/>
+                <Button x:Name="btnSave" Content="保存" Command="{Binding SaveCommand}"/>
+            </ToolBar>
+        </ToolBarTray>
+        <DataGrid x:Name="dgBookList"
+                  Grid.Row="1"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  ItemsSource="{Binding BookList}" 
+                  SelectedItem="{Binding SelectedBook}"
+                  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="书名" Binding="{Binding Title,
+                                    ValidatesOnDataErrors=True,
+                                    NotifyOnValidationError=True}" 
+                                    Width="5*"/>
+                <DataGridTextColumn Header="作者" Binding="{Binding Author}" Width="3*"/>
+                <DataGridTextColumn Header="出版机构" Binding="{Binding Publisher}" Width="90"/>
+                <DataGridTextColumn Header="出版时间" Binding="{Binding PublishDate}" Width="3*"/>
+                <DataGridTextColumn Header="语言" Binding="{Binding Language}" Width="3*"/>
+                <DataGridTextColumn Header="页数" Binding="{Binding Pages}" Width="3*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
