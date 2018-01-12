@@ -1,1 +1,2 @@
 G:\VS Projects\Library\Library\bin\Debug\Library.exe.config
+G:\GitHub_Repository\WPF_Project\Library\bin\Debug\Library.exe.config

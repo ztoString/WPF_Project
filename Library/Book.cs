@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Library
 {
-    public class Book
+    public class Book : IDataErrorInfo
     {
+
         private String _id;
         private String _title;
         private String _author;
@@ -58,5 +60,6 @@ namespace Library
             get { return _pages; }
             set { _pages = value; }
         }
+
     }
 }
