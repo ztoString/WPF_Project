@@ -20,9 +20,12 @@ namespace Library
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MainWindowModel _mainWindowModel = new MainWindowModel();
         public MainWindow()
         {
             InitializeComponent();
+
+            this.gridContent.DataContext = _mainWindowModel;
         }
     }
 }

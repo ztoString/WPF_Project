@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    public class Book : IDataErrorInfo
+    public class Book
     {
 
         private String _id;

@@ -23,5 +23,13 @@ namespace Library
         {
             InitializeComponent();
         }
+        private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            BookListViewModel bookListViewModel = dgBookList.DataContext as BookListViewModel;
+            if (bookListViewModel != null)
+            {
+                bookListViewModel.SearchCommand.Execute(null);
+            }
+        }
     }
 }

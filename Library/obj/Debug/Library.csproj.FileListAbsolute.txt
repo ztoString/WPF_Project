@@ -1,2 +1,19 @@
 G:\VS Projects\Library\Library\bin\Debug\Library.exe.config
 G:\GitHub_Repository\WPF_Project\Library\bin\Debug\Library.exe.config
+G:\GitHub_Repository\WPF_Project\Library\obj\Debug\BookListView.baml
+G:\GitHub_Repository\WPF_Project\Library\obj\Debug\BookView.baml
+G:\GitHub_Repository\WPF_Project\Library\obj\Debug\BookListView.g.cs
+G:\GitHub_Repository\WPF_Project\Library\obj\Debug\BookView.g.cs
+G:\GitHub_Repository\WPF_Project\Library\obj\Debug\MainWindow.g.cs
+G:\GitHub_Repository\WPF_Project\Library\obj\Debug\App.g.cs
+G:\GitHub_Repository\WPF_Project\Library\obj\Debug\GeneratedInternalTypeHelper.g.cs
+G:\GitHub_Repository\WPF_Project\Library\obj\Debug\Library_MarkupCompile.cache
+G:\GitHub_Repository\WPF_Project\Library\obj\Debug\Library_MarkupCompile.lref
+G:\GitHub_Repository\WPF_Project\Library\bin\Debug\Library.exe
+G:\GitHub_Repository\WPF_Project\Library\bin\Debug\Library.pdb
+G:\GitHub_Repository\WPF_Project\Library\obj\Debug\MainWindow.baml
+G:\GitHub_Repository\WPF_Project\Library\obj\Debug\Library.g.resources
+G:\GitHub_Repository\WPF_Project\Library\obj\Debug\Library.Properties.Resources.resources
+G:\GitHub_Repository\WPF_Project\Library\obj\Debug\Library.csproj.GenerateResource.Cache
+G:\GitHub_Repository\WPF_Project\Library\obj\Debug\Library.exe
+G:\GitHub_Repository\WPF_Project\Library\obj\Debug\Library.pdb

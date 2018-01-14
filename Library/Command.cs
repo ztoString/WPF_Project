@@ -17,5 +17,34 @@ namespace Library
             this._execute = execute;
             this._canExecute = canExecute;
         }
+
+        public bool CanExecute(object parameter)
+        {
+            if (_canExecute != null)
+            {
+                return _canExecute(parameter);
+            }
+            return true;
+        }
+
+        public event EventHandler CanExecuteChanged
+        {
+            add
+            {
+                CommandManager.RequerySuggested += value;
+            }
+            remove
+            {
+                CommandManager.RequerySuggested -= value;
+            }
+        }
+
+        public void Execute(object parameter)
+        {
+            if (_execute != null)
+            {
+                _execute(parameter);
+            }
+        }
     }
 }

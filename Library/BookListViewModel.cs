@@ -121,7 +121,7 @@ namespace Library
             _searchCommand = new Command((p) => Search(p), (p) => CanSearch(p));
             _saveCommand = new Command((p) => Save(p), (p) => CanSave(p));
 
-            strFilePath = "BookLibrary.xml";
+            strFilePath = "../../BookLibrary.xml";
 
             LoadLibrary();
         }

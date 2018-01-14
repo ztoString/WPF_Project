@@ -19,14 +19,14 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="3*"/>
                 </Grid.ColumnDefinitions>
-                <View:BookListView/>
+                <View:BookListView DataContext="{Binding BookListViewModel}"/>
 
                 <GridSplitter Width="2"
                               Grid.Column="1"
                               Background="Yellow"
                               VerticalAlignment="Stretch"
                               HorizontalAlignment="Center"/>
-                <View:BookView Grid.Column="2"/>
+                <View:BookView Grid.Column="2" DataContext="{Binding BookListViewModel.SelectedBook}"/>
             </Grid>
         </Grid>
     </Border>
