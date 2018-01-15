@@ -31,6 +31,7 @@ namespace Library
             get { return _title; }
             set { _title = value; }
         }
+        
         public String Author
         {
             get { return _author; }

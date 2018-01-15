@@ -17,3 +17,7 @@ G:\GitHub_Repository\WPF_Project\Library\obj\Debug\Library.Properties.Resources.
 G:\GitHub_Repository\WPF_Project\Library\obj\Debug\Library.csproj.GenerateResource.Cache
 G:\GitHub_Repository\WPF_Project\Library\obj\Debug\Library.exe
 G:\GitHub_Repository\WPF_Project\Library\obj\Debug\Library.pdb
+G:\GitHub_Repository\WPF_Project\Library\obj\Debug\Library.csprojResolveAssemblyReference.cache
+G:\GitHub_Repository\WPF_Project\Library\obj\Debug\Login.baml
+G:\GitHub_Repository\WPF_Project\Library\obj\Debug\Login.g.cs
+G:\GitHub_Repository\WPF_Project\Library\obj\Debug\App.baml

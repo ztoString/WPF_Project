@@ -11,13 +11,17 @@ namespace Library
     {
         Action<Object> _execute;
         Predicate<Object> _canExecute;
+        private UserViewModel userViewModel;
 
         public Command(Action<object> execute, Predicate<object> canExecute)
         {
             this._execute = execute;
             this._canExecute = canExecute;
         }
-
+        public Command(UserViewModel userViewModel)
+        {
+            this.userViewModel = userViewModel;
+        }
         public bool CanExecute(object parameter)
         {
             if (_canExecute != null)
@@ -41,6 +45,7 @@ namespace Library
 
         public void Execute(object parameter)
         {
+            userViewModel.QueryData();
             if (_execute != null)
             {
                 _execute(parameter);
