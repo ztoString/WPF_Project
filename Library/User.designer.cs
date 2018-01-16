@@ -29,6 +29,9 @@ namespace Library
 		
     #region 可扩展性方法定义
     partial void OnCreated();
+    partial void InsertUser(User instance);
+    partial void UpdateUser(User instance);
+    partial void DeleteUser(User instance);
     #endregion
 		
 		public UserDataContext(string connection) : 
@@ -65,10 +68,12 @@ namespace Library
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
-	public partial class User
+	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
-		private string _Id;
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
 		
 		private string _Name;
 		
@@ -82,12 +87,33 @@ namespace Library
 		
 		private string _Memo;
 		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnAccountChanging(string value);
+    partial void OnAccountChanged();
+    partial void OnPwdChanging(string value);
+    partial void OnPwdChanged();
+    partial void OnMobileChanging(string value);
+    partial void OnMobileChanged();
+    partial void OnMailChanging(string value);
+    partial void OnMailChanged();
+    partial void OnMemoChanging(string value);
+    partial void OnMemoChanged();
+    #endregion
+		
 		public User()
 		{
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", CanBeNull=false)]
-		public string Id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", IsPrimaryKey=true)]
+		public int Id
 		{
 			get
 			{
@@ -97,7 +123,11 @@ namespace Library
 			{
 				if ((this._Id != value))
 				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
 					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
 				}
 			}
 		}
@@ -113,7 +143,11 @@ namespace Library
 			{
 				if ((this._Name != value))
 				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
 					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
 				}
 			}
 		}
@@ -129,7 +163,11 @@ namespace Library
 			{
 				if ((this._Account != value))
 				{
+					this.OnAccountChanging(value);
+					this.SendPropertyChanging();
 					this._Account = value;
+					this.SendPropertyChanged("Account");
+					this.OnAccountChanged();
 				}
 			}
 		}
@@ -145,7 +183,11 @@ namespace Library
 			{
 				if ((this._Pwd != value))
 				{
+					this.OnPwdChanging(value);
+					this.SendPropertyChanging();
 					this._Pwd = value;
+					this.SendPropertyChanged("Pwd");
+					this.OnPwdChanged();
 				}
 			}
 		}
@@ -161,7 +203,11 @@ namespace Library
 			{
 				if ((this._Mobile != value))
 				{
+					this.OnMobileChanging(value);
+					this.SendPropertyChanging();
 					this._Mobile = value;
+					this.SendPropertyChanged("Mobile");
+					this.OnMobileChanged();
 				}
 			}
 		}
@@ -177,7 +223,11 @@ namespace Library
 			{
 				if ((this._Mail != value))
 				{
+					this.OnMailChanging(value);
+					this.SendPropertyChanging();
 					this._Mail = value;
+					this.SendPropertyChanged("Mail");
+					this.OnMailChanged();
 				}
 			}
 		}
@@ -193,8 +243,32 @@ namespace Library
 			{
 				if ((this._Memo != value))
 				{
+					this.OnMemoChanging(value);
+					this.SendPropertyChanging();
 					this._Memo = value;
+					this.SendPropertyChanged("Memo");
+					this.OnMemoChanged();
 				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

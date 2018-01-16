@@ -54,8 +54,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="LinqToSql.cs" />
     <Compile Include="RegexTxt.cs" />
-    <Compile Include="User.cs" />
     <Compile Include="User.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

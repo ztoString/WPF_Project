@@ -71,30 +71,24 @@ namespace Library
 
         public UserViewModel()
         {
-            user.UserId = 1;
-            user.UserName = "zoutong";
-            user.Password = "123";
             loginCommand = new Command(this);
         }
 
         public void QueryData()
         {
-            if (!string.IsNullOrEmpty(this.UserName))
+            List<User> list = new List<User>();
+            list = LinqToSql.Query(this.UserName, this.UserPassword);
+            if (list != null && list.Count > 0)
             {
-                if (this.UserName != user.UserName)
-                {
-                    MessageBox.Show("用户名错误");
-                    return;
-                }
-                if (this.UserPassword != user.Password)
-                {
-                    MessageBox.Show("密码错误");
-                    return;
-                }
                 MessageBox.Show("登录成功");
                 is_login = 1;
-                MainWindow Mn = new MainWindow(); 
+                MainWindow Mn = new MainWindow();
                 Mn.Show();
+            }
+            else
+            {
+                MessageBox.Show("用户名或密码错误");
+                return;
             }
         }
 
