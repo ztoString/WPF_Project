@@ -31,5 +31,6 @@ namespace Library
                 bookListViewModel.SearchCommand.Execute(null);
             }
         }
+
     }
 }

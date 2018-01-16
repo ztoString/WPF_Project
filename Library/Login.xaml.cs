@@ -33,7 +33,7 @@ namespace Library
             {
                 this.userViewModel.UserName = this.txtUserName.Text;
                 this.userViewModel.UserPassword = this.txtPassword.Text;
-                this.userViewModel.LoginCommand.Execute(null);
+                this.userViewModel.LoginCommand.Execute(1);
                 if (userViewModel.IsLogin == 1) this.Close();
             }
         }

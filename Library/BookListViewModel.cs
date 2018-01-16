@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using System.Xml.Linq;
 
@@ -185,6 +186,7 @@ namespace Library
                 BookList.Remove(SelectedBook);
                 _bookLibrary = BookList.ToIEnumerable<Book>();
                 SelectedBook = BookList.LastOrDefault();
+                MessageBox.Show("删除成功！", "提示");
             }
         }
 
@@ -224,8 +226,44 @@ namespace Library
             XDocument newDoc = new XDocument(
                 new XDeclaration("1.0", "utf-8", "true"));
             XElement bookLibrary = new XElement("BookLibrary");
+            if (newData.Last().Title==null||newData.Last().Author==null||newData.Last().Publisher==null||newData.Last().PublishDate==null||newData.Last().Language==null||newData.Last().Pages==null)
+            {
+                MessageBox.Show("信息填写不完整！","提示");
+                return;
+            }
+            if(!RegexTxt.IsChinEngNum(newData.Last().Title))
+            {
+                MessageBox.Show("书名格式：中文,英文,数字！", "提示");
+                return;
+            }
+            if (!RegexTxt.IsChiEng(newData.Last().Author))
+            {
+                MessageBox.Show("作者格式：中文,英文！", "提示");
+                return;
+            }
+            if (!RegexTxt.IsChiEng(newData.Last().Publisher))
+            {
+                MessageBox.Show("出版机构格式：中文,英文！", "提示");
+                return;
+            }
+            if (!RegexTxt.IsDate(newData.Last().PublishDate))
+            {
+                MessageBox.Show("日期格式为xxxx/xx/xx", "提示");
+                return;
+            }
+            if (!RegexTxt.IsChiEng(newData.Last().Language))
+            {
+                MessageBox.Show("语言格式：中文,英文！", "提示");
+                return;
+            }
+            if (!RegexTxt.IsPositiveInt(newData.Last().Pages))
+            {
+                MessageBox.Show("页数格式为非零正整数！", "提示");
+                return;
+            }
             foreach (var b in newData)
             {
+                
                 XElement book = new XElement("Book",
                     new XAttribute("ID", b.ID),
                     new XElement("Title", b.Title),
@@ -237,8 +275,10 @@ namespace Library
                     );
                 bookLibrary.Add(book);
             }
+
             newDoc.Add(bookLibrary);
             newDoc.Save(strFilePath);
+            MessageBox.Show("保存成功！", "提示");
         }
     }
 }

@@ -45,11 +45,14 @@ namespace Library
 
         public void Execute(object parameter)
         {
-            userViewModel.QueryData();
+            if(parameter!=null)
+                userViewModel.QueryData();
             if (_execute != null)
             {
                 _execute(parameter);
             }
         }
+        
+        
     }
 }
